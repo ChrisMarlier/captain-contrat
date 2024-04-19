@@ -15,6 +15,10 @@ class FightSimulation
             event
             @warriors_order = @warriors_order.reverse
         end
+        warrior1.health = 100
+        warrior2.health = 100
+        warrior1.rewards
+        warrior2.rewards
         @fight.update!(winner_id: winner.id)
     end
 

@@ -5,6 +5,7 @@
 <% @warriors.each do |warrior| %>
     <div style="margin:8px">
         <div style="display:inline-block; width:200px" ><%= warrior.name %></div>
+        <div style="display:inline-block; width:200px" >Lvl <%= warrior.level %></div>
         <%= link_to '<button type="button">See more</button>'.html_safe, warrior_path(warrior) %>
     </div>
 <% end %>

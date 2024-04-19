@@ -20,6 +20,23 @@ class Warrior < ApplicationRecord
       0
     end
 
+    def rewards
+      self.experience += rand(15..35)
+      level_up if level_up?
+      self.save!
+    end
+
+    def level_up?
+      experience >= 100
+    end
+
+    def level_up 
+      self.experience = 0
+      self.level += 1
+      self.attack += rand(1..3)
+      self.defense += rand(1..3)
+    end
+
     private
   
     def total_attributes_under_limit
