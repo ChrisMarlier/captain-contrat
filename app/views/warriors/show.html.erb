@@ -1,1 +1,15 @@
-<p>Hello</p>
+<h1><%= @warrior.name %></h2>
+
+<p>Level: <%= @warrior.level %></p>
+<p>Experience: <%= @warrior.experience %></p>
+
+<h4>Stats:</h4>
+
+<p>Attack: <%= @warrior.attack %></p>
+<p>Defense: <%= @warrior.defense %></p>
+<p>Health: <%= @warrior.health %></p>
+
+<h4>Custom info:</h4>
+<p>Fights won: <%= @warrior.victories.count %></p>
+<p>Total fights: <%= @warrior.fights.count %></p>
+<p>Win rate: <%= @warrior.winrate %>%</p>
