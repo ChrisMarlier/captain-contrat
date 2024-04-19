@@ -1,11 +1,12 @@
 class FightSimulation
     attr_reader :warrior1, :warrior2
 
-    # FightSimulation.new(Warrior.first,Warrior.last)
     def initialize(fight)
         @fight = fight
         @warrior1 = fight.warrior1
         @warrior2 = fight.warrior2
+        @warrior1_item = fight.warrior1_item
+        @warrior2_item = fight.warrior2_item
         @warriors_order = [warrior2, warrior1].shuffle
     end
 
@@ -28,7 +29,16 @@ class FightSimulation
     end
     
     def simulate_attack
-        rand(1..6) * @warriors_order[0].attack - @warriors_order[1].defense
+        rand(1..6) * (@warriors_order[0].attack + item_damage(@warriors_order[0])) - @warriors_order[1].defense
+    end
+
+    def item_damage(warrior)
+        item = current_item(@warriors_order[0])
+        item ? item.damage : 0
+    end
+
+    def current_item(warrior)
+        warrior == @warrior1 ? @warrior1_item : @warrior2_item
     end
 
     def winner 
