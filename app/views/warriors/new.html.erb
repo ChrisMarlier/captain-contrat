@@ -20,14 +20,16 @@
     <%= form.text_field :name %>
   </div>
 
+  <p style="margin-top: 40px;">You have 10 points to share between attack and defense.</p>
+
   <div class="input-container">
     <%= form.label :attack %>
-    <%= form.number_field :attack %>
+    <%= form.number_field :attack, in: 0..10%>
   </div>
 
   <div class="input-container">
     <%= form.label :defense %>
-    <%= form.number_field :defense %>
+    <%= form.number_field :defense, in: 0..10%>
   </div>
 
   <div class="input-container">
