@@ -13,21 +13,21 @@
     </div>
   <% end %>
 
-    <div>
+    <div class="input-container">
         <%= form.label :warrior1, 'Fighter 1:'  %>
         <%= form.collection_select :warrior1_id, Warrior.all, :id, :name %>
         <%= form.label :warrior1_item_id, 'Weapon 1:'  %>
         <%= form.collection_select :warrior1_item_id, Item.all, :id, :name, { include_blank: true } %>
     </div>
     
-    <div>
+    <div class="input-container">
         <%= form.label :warriorpar2, 'Fighter 2:' %>
         <%= form.collection_select :warrior2_id, Warrior.all, :id, :name %>
         <%= form.label :warrior2_item_id, 'Weapon 1:'  %>
         <%= form.collection_select :warrior2_item_id, Item.all, :id, :name, { include_blank: true } %>
     </div>
     
-    <div>
+    <div class="input-container">
         <%= form.submit "Fight" %>
     </div>
 <% end %>

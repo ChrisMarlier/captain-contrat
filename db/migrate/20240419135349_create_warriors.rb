@@ -6,7 +6,7 @@ class CreateWarriors < ActiveRecord::Migration[7.0]
       t.integer :experience, default: 0
       t.integer :attack, default: 0
       t.integer :defense, default: 0
-      t.integer :health, default: 0
+      t.integer :health, default: 100
 
       t.timestamps
     end

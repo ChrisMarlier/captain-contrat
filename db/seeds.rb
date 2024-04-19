@@ -7,8 +7,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Warrior.create!(name: 'Conan', attack: 10, defense: 5, health: 100)
-Warrior.create!(name: 'Thor', attack: 8, defense: 7, health: 100)
+Warrior.create!(name: 'Conan', attack: 5, defense: 5, health: 100)
+Warrior.create!(name: 'Thor', attack: 3, defense: 7, health: 100)
 
 Item.create!(name: 'Sword', damage: 5)
 Item.create!(name: 'Axe', damage: 4)

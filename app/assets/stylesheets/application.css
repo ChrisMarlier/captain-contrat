@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+form {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+input {}
+
+.input-container {
+    margin-top: 20px;
+    margin-b
+}

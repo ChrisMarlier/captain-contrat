@@ -1,9 +1,9 @@
 class Warrior < ApplicationRecord
     validates :attack, :name, :defense, :health, presence: true
-    validate :total_attributes_under_limit
+    validate :total_attributes_under_limit, on: :create
   
     def total_attributes_under_limit?
-      (attack || 0) + (defense || 0) + (health || 0) <= 10
+      (attack || 0) + (defense || 0) <= 10
     end
   
     def victories

@@ -19,6 +19,6 @@ class WarriorsController < ApplicationController
     private
     
     def warrior_params
-        params.require(:warrior).permit(:name, :attack, :defense, :health)
+        params.require(:warrior).permit(:name, :attack, :defense)
     end
 end
