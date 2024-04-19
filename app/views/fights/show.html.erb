@@ -1,0 +1,10 @@
+<h1>Fight</h1>
+
+<h3><%= @fight.warrior1.name%> VS <%= @fight.warrior2.name%></h3>
+
+<% @fight.fight_events.each do |event| %>
+    <p> <%= event.attacker_name %> attacks and inflicts <%= event.damage %> damages to <%= event.defender_name%>.
+    He has <%= event.defender_health > 0 ? event.defender_health : 0 %> PV left.</p>
+<% end %>
+
+<h3>Winner is <%= @fight.winner.name %></h3>
