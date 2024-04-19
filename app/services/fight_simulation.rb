@@ -21,7 +21,7 @@ class FightSimulation
     def event
         damage = simulate_attack
         @warriors_order[1].health -= damage
-        FightEvent.create(fight: @fight, attacker_name: @warriors_order[0].name, defender_name: @warriors_order[1].name, damage: damage, defender_health: @warriors_order[1].health)
+        FightEvent.create!(fight: @fight, attacker_name: @warriors_order[0].name, defender_name: @warriors_order[1].name, damage: damage, defender_health: @warriors_order[1].health)
     end
     
     def finished?
@@ -29,7 +29,8 @@ class FightSimulation
     end
     
     def simulate_attack
-        rand(1..6) * (@warriors_order[0].attack + item_damage(@warriors_order[0])) - @warriors_order[1].defense
+        damage = rand(1..6) * @warriors_order[0].attack + item_damage(@warriors_order[0]) - @warriors_order[1].defense
+        damage < 0 ? 0 : damage
     end
 
     def item_damage(warrior)

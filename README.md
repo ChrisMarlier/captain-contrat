@@ -1,3 +1,21 @@
+# Setup the repo
+
+To setup the repo:
+
+`rake db:migrate`
+`rake db:seed`
+
+Then run:
+`rails s`
+
+Some warriors, fights and items are already available on the seeds.
+
+You can contact me in case of problem.
+
+marlier.christopher@gmail.com
+
+----------------------------------
+
 Ce repo contient le squelette d'une application à compléter dans le cadre du processus de recrutement des développeurs.
 
 Plus d'infos à propos du poste de développeur chez Captain Contrat sur [notre page jobs](https://www.welcometothejungle.com/fr/companies/captain-contrat/jobs)
