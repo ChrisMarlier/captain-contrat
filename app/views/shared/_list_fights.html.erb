@@ -1,0 +1,7 @@
+<% @fights.each do |fight| %>
+    <div style="margin:8px">
+        <div style="display:inline-block; width:200px" ><%= fight.warrior1.name %> VS <%= fight.warrior2.name %></div>
+        <div style="display:inline-block; width:100px" ><%= fight.winner.name %></div>
+        <%= link_to '<button type="button">See more</button>'.html_safe, fight_path(fight) %>
+    </div>
+<% end %>
