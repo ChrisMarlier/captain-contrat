@@ -1,0 +1,12 @@
+<h1>List of all warriors</h1>
+
+<%= link_to "Create a new warrior", new_warrior_path %>
+
+<% @warriors.each do |warrior| %>
+    <div style="margin:8px">
+        <div style="display:inline-block; width:200px" ><%= warrior.name %></div>
+        <%= link_to '<button type="button">See more</button>'.html_safe, warrior_path(warrior) %>
+    </div>
+<% end %>
+
+<%= render partial: "/shared/home_link"%>

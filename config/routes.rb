@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   get '/rules', to: 'pages#rules'
-  
-  resources :warriors, only: [:new, :create, :show]
+  resources :warriors, only: [:new, :create, :index, :show]
   resources :fights, only: [:new, :create, :index, :show]
 end

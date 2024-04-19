@@ -12,6 +12,10 @@ class WarriorsController < ApplicationController
         end
     end
 
+    def index
+        @warriors = Warrior.all
+    end
+
     def show 
         @warrior = Warrior.find(params[:id])
     end

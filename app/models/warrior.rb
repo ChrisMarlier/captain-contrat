@@ -15,7 +15,7 @@ class Warrior < ApplicationRecord
     end
 
     def winrate
-      (fights.count / victories.count)*100
+      ((victories.count.to_f / fights.count) * 100).round(2)
     rescue 
       0
     end
