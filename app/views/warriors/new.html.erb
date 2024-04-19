@@ -1,0 +1,41 @@
+<!-- new.html.erb -->
+
+<h1>Create your Warrior</h1>
+
+<%= form_with(model: @warrior, local: true) do |form| %>
+  <% if @warrior.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@warrior.errors.count, "error") %> prohibited this warrior from being saved:</h2>
+
+      <ul>
+      <% @warrior.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :attack %>
+    <%= form.number_field :attack %>
+  </div>
+
+  <div>
+    <%= form.label :defense %>
+    <%= form.number_field :defense %>
+  </div>
+
+  <div>
+    <%= form.label :health %>
+    <%= form.number_field :health %>
+  </div>
+
+  <div>
+    <%= form.submit "Créer Warrior" %>
+  </div>
+<% end %>

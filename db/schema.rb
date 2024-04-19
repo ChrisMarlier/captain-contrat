@@ -15,9 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_135349) do
     t.string "name"
     t.integer "level", default: 1
     t.integer "experience", default: 0
-    t.integer "attack"
-    t.integer "defense"
-    t.integer "health", default: 100
+    t.integer "attack", default: 0
+    t.integer "defense", default: 0
+    t.integer "health", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
