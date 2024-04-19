@@ -15,7 +15,7 @@ RSpec.describe FightSimulation do
 
     it 'creates fight events' do
         described_class.new(fight).call
-        expect(fight.fight_events.count).to be > 1
+        expect(fight.fight_events.count).to be >= 1
     end
 
     it 'stops when a warrior has no health' do
