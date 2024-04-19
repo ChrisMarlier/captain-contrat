@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_19_144607) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_19_155119) do
+  create_table "fight_events", force: :cascade do |t|
+    t.integer "fight_id", null: false
+    t.string "attacker_name"
+    t.string "defender_name"
+    t.integer "damage"
+    t.integer "defender_health"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fight_id"], name: "index_fight_events_on_fight_id"
+  end
+
   create_table "fights", force: :cascade do |t|
     t.integer "warrior1_id", null: false
     t.integer "warrior2_id", null: false
+    t.integer "winner_id"
     t.integer "warrior1_item_id"
     t.integer "warrior2_item_id"
     t.datetime "created_at", null: false
@@ -22,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_144607) do
     t.index ["warrior1_item_id"], name: "index_fights_on_warrior1_item_id"
     t.index ["warrior2_id"], name: "index_fights_on_warrior2_id"
     t.index ["warrior2_item_id"], name: "index_fights_on_warrior2_item_id"
+    t.index ["winner_id"], name: "index_fights_on_winner_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -42,8 +55,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_144607) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "fight_events", "fights"
   add_foreign_key "fights", "items", column: "warrior1_item_id"
   add_foreign_key "fights", "items", column: "warrior2_item_id"
   add_foreign_key "fights", "warriors", column: "warrior1_id"
   add_foreign_key "fights", "warriors", column: "warrior2_id"
+  add_foreign_key "fights", "warriors", column: "winner_id"
 end

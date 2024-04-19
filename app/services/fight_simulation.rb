@@ -3,6 +3,7 @@ class FightSimulation
 
     # FightSimulation.new(Warrior.first,Warrior.last)
     def initialize(fight)
+        @fight = fight
         @warrior1 = fight.warrior1
         @warrior2 = fight.warrior2
         @warriors_order = [warrior2, warrior1].shuffle
@@ -13,12 +14,12 @@ class FightSimulation
             event
             @warriors_order = @warriors_order.reverse
         end
-        puts "Le combat est terminé ! Le vainqueur est #{winner.name} !\n"
+        @fight.update!(winner_id: winner.id)
     end
 
     def event
         @warriors_order[1].health -= damage
-        puts "#{@warriors_order[0].name} attaque #{@warriors_order[1].name} et lui inflige #{damage} points de dégâts.\n"
+        FightEvent.create(fight: @fight, attacker_name: @warriors_order[0].name, defender_name: @warriors_order[1].name, damage: damage, defender_health: @warriors_order[1].health)
     end
     
     def finished?
