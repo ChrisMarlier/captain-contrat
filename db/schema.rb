@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_19_135349) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_19_144607) do
+  create_table "fights", force: :cascade do |t|
+    t.integer "warrior1_id", null: false
+    t.integer "warrior2_id", null: false
+    t.integer "warrior1_item_id"
+    t.integer "warrior2_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["warrior1_id"], name: "index_fights_on_warrior1_id"
+    t.index ["warrior1_item_id"], name: "index_fights_on_warrior1_item_id"
+    t.index ["warrior2_id"], name: "index_fights_on_warrior2_id"
+    t.index ["warrior2_item_id"], name: "index_fights_on_warrior2_item_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.integer "damage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "warriors", force: :cascade do |t|
     t.string "name"
     t.integer "level", default: 1
@@ -22,4 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_19_135349) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "fights", "items", column: "warrior1_item_id"
+  add_foreign_key "fights", "items", column: "warrior2_item_id"
+  add_foreign_key "fights", "warriors", column: "warrior1_id"
+  add_foreign_key "fights", "warriors", column: "warrior2_id"
 end
