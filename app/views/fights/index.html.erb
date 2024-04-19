@@ -1,5 +1,9 @@
 <h1>List of all fights</h1>
 
+<%= link_to "Create a new fight", new_fight_path %>
+
 <p style="margin-left: 200px;">Winner</p>
 
 <%= render partial: "/shared/list_fights", locals: {object: @fights} %>
+
+<%= render partial: "/shared/home_link"%>
