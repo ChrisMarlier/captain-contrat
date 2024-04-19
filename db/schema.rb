@@ -10,5 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_19_135349) do
+  create_table "warriors", force: :cascade do |t|
+    t.string "name"
+    t.integer "level", default: 1
+    t.integer "experience", default: 0
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "health", default: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
